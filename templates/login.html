@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-5">
+                    <div class="card">
+
+                        <div class="card-body p-5">
+                            <h1 style="text-align: center;"><img src="{% static 'favicon.png' %}" width="50px" alt="">
+                                ToDo Pila</h1>
+                            <br>
+                            <form action="{% url 'login' %}" method="post"
+                                  class="d-flex justify-content-center align-items-center flex-column mb-4 p-2">
+                                {% csrf_token %}
+                                <div class="form-outline flex-fill mb-4">
+                                    <input type="text" id="form2" name="username" class="form-control "/>
+                                    <label class="form-label" for="form2">Usuario</label>
+                                </div>
+                                <div class="form-outline flex-fill mb-4">
+                                    <input type="text" id="form2" name="password" class="form-control"/>
+                                    <label class="form-label" for="form2">Contraseña</label>
+                                </div>
+
+                                <button type="submit" class="btn btn-info ms-2">Entrar o Registrarse</button>
+                                <br>
+                                <label class="form-label">Si confunde su nombre de usuario puede estar intentando entrar con a otra cuenta</label>
+
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
