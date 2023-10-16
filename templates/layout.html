@@ -19,11 +19,24 @@
             background-blend-mode: screen, color-dodge, overlay, difference, normal;
         }
     </style>
+
 </head>
 
 <body class="bg-info">
-{% block content %}
-{% endblock %}
+<div class="gradient-custom">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" data-mdb-animation-start="onHover" data-mdb-toggle="animation" data-mdb-animation="fade-out" role="alert" data-mdb-color="{{ message.tags }}" style="position: absolute;   left: 50%;
+  transform: translate(-50%, 10%);">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+</div>
+
 
 <script src="{% static 'js/mdb.min.js' %}"></script>
 </body>
